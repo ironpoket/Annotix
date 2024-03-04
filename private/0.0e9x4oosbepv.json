@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "name": "Gabriele",
+      "age": "19-25",
+      "gender": "Male",
+      "id": "0.ynls36lo4s"
+    }
+  ],
+  "annotation": [
+    {
+      "@context": "http://www.w3.org/ns/anno.jsonld",
+      "type": "Annotation",
+      "body": [
+        {
+          "type": "TextualBody",
+          "purpose": "tagging",
+          "value": "false"
+        }
+      ]
+    }
+  ],
+  "prevtext": "In a couple, it is acceptable for the man to slap the woman every now and then",
+  "text": "<p>In a couple, it is acceptable for the man to slap the woman every now and then</p>"
+}

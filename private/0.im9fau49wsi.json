@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "name": "Gabriele",
+      "age": "19-25",
+      "gender": "Male",
+      "id": "0.ynls36lo4s"
+    }
+  ],
+  "annotation": [
+    {
+      "@context": "http://www.w3.org/ns/anno.jsonld",
+      "type": "Annotation",
+      "body": [
+        {
+          "type": "TextualBody",
+          "purpose": "tagging",
+          "value": "false"
+        }
+      ]
+    }
+  ],
+  "prevtext": "If a woman after a party accepts an invitation from a man and is raped, it is also her fault",
+  "text": "<p>If a woman after a party accepts an invitation from a man and is raped, it is also her fault</p>"
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+  <%- include('../common/head.html') %> <%- include('../common/it/modal.html')
+  %>
+
+  <img src="../img/bg3.png" alt="Background Image" class="bg-image" />
+  <body>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="container">
+        <h1 class="text-center mb-4">Benvenute e benvenuti!</h1>
+        <div class="d-flex flex-column align-items-end">
+          <a href="/en">
+            <button type="button" class="btn btn-primary bg-primary">
+              English
+            </button>
+          </a>
+        </div>
+        <div class="card">
+          <div class="card-body presentation">
+            <%- include('../common/it/description.html') %>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <!-- Wrapper per centrare il bottone -->
+          <a href="#">
+            <button
+              type="button"
+              class="btn continue-btn"
+              data-mdb-toggle="modal"
+              data-mdb-target="#modalnote"
+            >
+              Continua
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/js/function.js"></script>
+</html>

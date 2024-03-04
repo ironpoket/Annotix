@@ -1,0 +1,60 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="../img/logo.png"
+          height="30"
+          alt="Logo università"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded"
+            data-mdb-toggle="modal"
+            data-mdb-target="#modalhelp"
+          >
+            Aiuto
+          </button>
+        </li>
+      </ul>
+      <!-- Right elements -->
+      <div>
+        <% if (pagetitle === 'recogito' && complete === true) { %>
+        <a href="/end">
+          <button button type="button" class="btn btn-warning btn-rounded">
+            Concludi
+          </button>
+        </a>
+        <p hidden></p>
+        <% } %> <%=name %>
+        <i class="mx-2 fas fa-user"></i>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

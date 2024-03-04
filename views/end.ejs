@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+  <%- include('../common/head.html') %> <%- include('../common/it/modal.html')
+  %>
+
+  <img src="../img/bg3.png" alt="Background Image" class="bg-image" />
+  <style>
+    /* Aggiungi questo stile per centrare il contenuto */
+    .centered-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80%; /* Usa l'altezza del viewport per centrare verticalmente */
+    }
+
+    /* Aggiungi questo stile per allineare i pulsanti su una singola riga */
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn-container button {
+      display: inline-block;
+      margin: 0 5px; /* Aggiungi spazio tra i pulsanti se necessario */
+    }
+  </style>
+  <body>
+    <div class="centered-content">
+      <!-- Aggiunta classe centered-content -->
+      <div class="col align-self-center">
+        <h1 class="text-center mb-4">Grazie per il tuo aiuto!</h1>
+        <h4 class="text-center mb-4">
+          Se hai voglia di suggerirci una frase discriminatoria clicca su
+          continua. <br />
+          Se vuoi saperne di più sul progetto lasciaci la tua email al termine
+          della frase suggerita o toccando su "Desidero saperne di più!" <br />
+          Altrimenti clicca su fine.
+        </h4>
+        <div class="text-center mt-4 btn-container">
+          <!-- Aggiunta classe btn-container -->
+          <!-- Wrapper per centrare il bottone -->
+          <a href="#">
+            <button
+              type="button"
+              class="btn continue-btn"
+              data-mdb-toggle="modal"
+              data-mdb-target="#phrase"
+            >
+              Continua
+            </button>
+          </a>
+          <a href="#">
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-mdb-toggle="modal"
+              data-mdb-target="#mail"
+            >
+              Desidero saperne di più!
+            </button>
+          </a>
+          <a href="/">
+            <button type="button" class="btn btn-info">Fine</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/it/footer.html') %>
+</html>

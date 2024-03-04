@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+  <%- include('../common/head.html') %> <%-
+  include('../common/it/modal.html') %>
+  <img src="../img/bg3.png" alt="Background Image" class="bg-image" />
+  <body>
+    <%- include('../common/it/navbar.html') %>
+    <div
+      class="d-flex justify-content-center align-items-center"
+      style="height: 600px"
+    >
+      <div class="container">
+        <% if (complete === true) { %>
+          <div class="alert alert-warning text-center p-3" role="alert">
+            <i class="fas fa-bell"></i>
+            Puoi finire l'esperienza, in qualunque momento, toccando su "Concludi" in alto a destra o andare avanti e annotare fino a dieci frasi.
+            <i class="fas fa-bell"></i>
+          </div>
+          
+        <% } %>       
+        <div class="card ">
+          <div class="card-body">
+            <!-- Form-->
+            <form action="/useriteration" method="post">
+              <div class="row">
+                <!-- Form-->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sentence"
+                      >Leggi la frase e rispondi alle domande
+                    </label>
+                    <textarea
+                      class="form-control default-text textarea-center"
+                      id="sentence"
+                      name="sentence"
+                      rows="6"
+                      readonly
+                      style="background-color: #f0fff0;"
+                    ><%=frase %></textarea>
+                    <!--Text area prende gli spazi vuoti-->
+                  </div>
+                </div>
+
+                <!-- Menu a destra con didascalia e input box -->
+                <div class="col-md-6" id="yesorno" style="display: block">
+                  <div >
+                    <label for="discriminationQuestion">Ritieni che questa frase sia discriminatoria?<br><br></label>
+                  </div>
+                  <label class="custom-radio">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="isdiscriminatory"
+                      id="si"
+                      value="true"
+                      onclick="gotocategory()"
+                    />
+                    <div class="radio-outer-circle">
+                      <div class="radio-inner-circle"></div>
+                    </div>
+                    <span class="radio-label">Si</span>
+                  </label>
+                  <p></p>
+                    <label class="custom-radio">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="isdiscriminatory"
+                        id="no"
+                        value="false"
+                        onclick="discriminatory()"
+                      />
+                      <div class="radio-outer-circle">
+                        <div class="radio-inner-circle"></div>
+                      </div>
+                      <span class="radio-label">No</span>
+                    </label>       
+                  </div>
+                  
+                
+                
+
+                <!-- Form select -->
+
+                <div class="col-md-6" id="menucategoria" style="display: none">
+                  <label for="categoria">Quale delle seguenti categorie descrive meglio il tipo di discriminazione presente nella frase secondo te? <br><br><br></label>
+                    <select id="categoria" name="categoria" class="form-select">
+                      <option value="Nationality">Nazionalità</option>
+                      <option value="Gender identity">
+                        Identità di Genere
+                      </option>
+                      <option value="Religious beliefs">
+                        Credenze Religiose
+                      </option>
+                      <option value="Ethnicity">Etnia</option>
+                      <option value="Sexual orientation">
+                        Orientamento Sessuale
+                      </option>
+                    </select>
+                  </div>
+                  <nav aria-label="Page navigation example" id="nextsentence" style="display: none;">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item" id="precedente" style="display: none;">
+                        <a class="page-link" href="#" onclick="yesorno()" >Precedente</a>
+                      </li>
+                      <li class="page-item">
+                        <button type="submit" class="page-link stretched-link" >Prossima frase</button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <!-- Spazio vuoto per allineamento -->
+                
+              </div>
+            </form>
+            <!-- end row-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/it/footer.html') %>
+  <script type="text/javascript" src="/js/function.js"></script>
+</html>

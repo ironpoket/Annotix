@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../common/head.html') %> <%- include('../common/en/modal.html')
+  %>
+
+  <img src="../img/bg3.png" alt="Background Image" class="bg-image" />
+  <style>
+    /* Add this style to center the content */
+    .centered-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80%; /* Use viewport height to center vertically */
+    }
+
+    /* Add this style to align buttons in a single row */
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn-container button {
+      display: inline-block;
+      margin: 0 5px; /* Add space between buttons if needed */
+    }
+  </style>
+  <body>
+    <div class="centered-content">
+      <!-- Add centered-content class -->
+      <div class="col align-self-center">
+        <h1 class="text-center mb-4">Thank you for your help!</h1>
+        <h4 class="text-center mb-4">
+          If you feel like suggesting a discriminatory phrase, click on
+          continue. <br />
+          If you want to learn more about the project, leave us your email at
+          the end of the suggested phrase or by tapping on "I want to know
+          more!" <br />
+          Otherwise, click on finish.
+        </h4>
+        <div class="text-center mt-4 btn-container">
+          <!-- Add btn-container class -->
+          <!-- Button wrapper -->
+          <a href="#">
+            <button
+              type="button"
+              class="btn continue-btn"
+              data-mdb-toggle="modal"
+              data-mdb-target="#phrase"
+            >
+              Continue
+            </button>
+          </a>
+          <a href="#">
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-mdb-toggle="modal"
+              data-mdb-target="#mail"
+            >
+              I want to know more!
+            </button>
+          </a>
+          <a href="/">
+            <button type="button" class="btn btn-info">Finish</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/en/footer.html') %>
+</html>

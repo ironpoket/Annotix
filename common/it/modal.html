@@ -1,0 +1,225 @@
+<!-- Modal raccolta dati utente-->
+<div 
+class="modal fade"
+id="modalnote"
+tabindex="-1"
+aria-labelledby="modal data"
+aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alcune informazioni</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-mdb-ripple-init
+          data-mdb-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <p>Per cominciare raccontaci qualcosa di te!</p>
+
+        <form style="margin: 0 auto; width: 80%" id="formdata" action="/get_userinfo" method="post">
+
+          <div class="mb-3">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input 
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Inserisci il nome"
+              name="name"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="inputEta" class="form-label">Età</label>
+            <select class="form-select" id="age" name="age" required>
+              <option value="" disabled selected>Indica la fascia d'età</option>
+              <option value="14-19">14 - 19</option>
+              <option value="19-25">19 - 25</option>
+              <option value="26-35">26 - 35</option>
+              <option value="36-54">36 - 54</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="genere" class="form-label">Genere</label>
+            <select class="form-select" id="gender" name="gender" required>
+              <option value="" disabled selected>Indica il genere</option>
+              <option value="Maschio">Maschio</option>
+              <option value="Femmina">Femmina</option>
+              <option value="Non specificato">Preferisco non specificarlo</option>
+            </select>
+          </div>
+          <input type="text" name="lang" value="it" hidden >
+
+
+      </div>
+      <div class="modal-footer  justify-content-center">
+        <button  class="btn btn-success" type="submit">
+          Avanti
+        </button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal di aiuto per l'utente -->
+
+<div class="modal fade" id="modalhelp" tabindex="-1" aria-labelledby="modal data" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Aiuto</h5>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <p>In che modo posso esserti d'aiuto?</p>
+        <a href="/example">
+        <button class="btn btn-info btn-rounded">Tipi di discriminazione</button>
+        </a >  
+        <!-- Nuova sezione per Discriminazione per età -->
+        <div id="howork" >
+          <div class="mt-4 text-center d-flex flex-column align-items-center">
+            <p>Leggi la frase a sinistra e tocca sì se ritieni che il contenuto sia discriminatorio.</p>
+          
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" />
+                  <label class="form-check-label">Sì</label>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" />
+                  <label class="form-check-label">No</label>
+                </div>
+              </div>
+            </div>
+          
+            <p><br>Se hai scelto no, tocca su "Prossima frase".</p>
+            <nav aria-label="Page navigation example" >
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <button  class="page-link stretched-link">Prossima frase</button>
+                </li>
+              </ul>
+            </nav>
+            <p>Altrimenti compare un menu a tendina. <br>Seleziona la categoria che ritinei più adeguata e poi tocca su prossima frase </p>
+            <div>
+                <select class="form-select">
+                  <option value="Age">Età</option>
+                  <option value="Caste">Casta</option>
+                  <option value="Disability">Disabilità</option>
+                  <option value="Language">Linguaggio volgare</option>
+                  <option value="Nationality">Nazionalità</option>
+                  <option value="Ethnicity">Etnia</option>
+                  <option value="Gender identity">
+                    Identità di Genere
+                  </option>
+                  <option value="Religious beliefs">
+                    Credenze Religiose
+                  </option>
+                  <option value="Sexual orientation">
+                    Orientamento Sessuale
+                  </option>
+                </select>
+              </div>
+              <p><br>Se hai cambiato idea tocca su Precedente</p>
+              <p><br>Ti verranno mostrate più frasi da classificare</p>
+          </div>   
+        <!-- Fine della sezione Discriminazione per età -->
+      </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button class="btn btn-success" data-mdb-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal fine prima parte -->
+<div class="modal fade" id="phrase" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Grazie!</h5>
+        
+      </div>
+      <div class="modal-body">
+        <!-- Aggiunta del form con una textarea -->
+        <form id="myForm" action="/usersugestion" method="post">
+          <div class="form-group">
+            <label for="testo">Inserisci il tuo testo:</label>
+            <textarea class="form-control" id="sugestion" name="sugestion" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Inserisci un'email valida">
+            <small id="emailHelp" class="form-text text-muted">Esempio: email@example.com</small>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="autorizzazione" name="autorizzazione">
+            <label class="form-check-label" for="autorizzazione">Autorizzo ad essere ricontattato nell'ambito della ricerca di Annotix</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- Trasformazione del pulsante in un pulsante di invio -->
+        <button type="submit" form="myForm" class="btn btn-info">fine</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="mail" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Grazie!</h5>
+      </div>
+      <div class="modal-body">
+        <!-- Form per richiedere nome e email all'utente -->
+        <form id="usermail" action="/usermail" method="post">
+          <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il tuo nome" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Inserisci un'email valida" required>
+            <small id="emailHelp" class="form-text text-muted">Esempio: email@example.com</small>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="autorizzazione" name="autorizzazione" required>
+            <label class="form-check-label" for="autorizzazione">Autorizzo ad essere ricontattato nell'ambito della ricerca di Annotix</label>
+          </div>
+          <!-- Altre campi del form possono essere aggiunti qui -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- Trasformazione del pulsante in un pulsante di invio -->
+        <button type="submit" form="usermail" class="btn btn-info">Invia</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
