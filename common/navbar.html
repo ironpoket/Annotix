@@ -1,0 +1,97 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="../img/logo.png"
+          height="30"
+          alt="Logo università"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="recogito">Home</a>
+        </li>
+        <!--
+        <li class="nav-item" >
+          <a class="nav-link" href="help">Help</a>
+        </li>
+        -->
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <% if (locals.username) { %>
+      <!-- Avatar -->
+      <a href="#" class="fas fa-cloud mx-2" id="cloud-icon" style="color: rgb(82, 147, 208); display: none;" data-mdb-toggle="modal" data-mdb-target="#detailsnote"  >&nbsp</a> 
+      <script>
+         var titoloPagina = document.title.toLowerCase();
+          // Se il titolo corrisponde a "recogito" o "firepad"
+          if (titoloPagina.includes("recogito") || titoloPagina.includes("firepad")) {
+          // Trova l'icona con ID "cloud-icon"
+          var cloudIcon = document.getElementById("cloud-icon");
+            // Se l'icona esiste, disabilita e nascondi
+            if (cloudIcon) {
+              cloudIcon.style.display = "block";
+            }
+}
+      </script>
+      <div class="dropdown">
+        <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-mdb-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fas fa-user ">&nbsp</i><%= locals.name %>
+      </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item" href="/profile">
+              <i class="far fa-address-card"></i>
+               My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout">
+              <i class="fas fa-right-from-bracket"></i>
+               Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+      <% } else { %>
+       <button class="btn btn-info">
+        <a class="nav-link" href="login">Login / Sign-up </a>
+       </button>
+      <% } %>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

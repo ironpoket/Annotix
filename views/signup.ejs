@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../common/head.html') %> <%- include('../common/navbar.html') %>
+  <body>
+    <div class="container-xl py-4">
+      <div class=" row justify-content-cente py-1">
+        <h3 class="text-center">Create Account</h3>
+      </div>
+      <form id="createuser" role="form text-center col-8" action="/form-signup" method="post">
+        <div class="row justify-content-center">
+          <div class="py-1">
+            <span class="row justify-content-center py-2" style="font-size: 14px;">
+              Create an account to access exclusive features. Save notes in the cloud and collaborate with your team in real time.
+            </span>            
+              <h4 class=" text-center"> Personal information</h4>  
+          </div>
+          <div class="col-md-4  py-3">
+            <input type="text" name="name" class="form-control" placeholder="name" id="name" required="true"  pattern="[a-zA-Z]{2,15}" title="No number,maximum 15 characters">
+          </div>
+          <div class="col-md-4  py-3">
+            <input type="text" name="surname" class="form-control" placeholder="surname" id="surname" required="true" pattern="[a-zA-Z]{2,15}" title="No number,maximum 15 characters">
+          </div>
+        </div>
+        <div class="row justify-content-center py-4 ">
+          <div class="col-md-4  py-1">
+            <div class="input-group">
+              <span class="input-group-text" >Date of birth</span>
+              <input type="date" name="age" class="form-control" required="true" max="<?=$today?>">
+            </div>
+          </div>
+          <div class="col-md-4  py-1">
+            <div class="input-group">
+            <span class="input-group-text">Accademic field</span>  
+            <input type="text" id="accademic_field" name="accademic_field" class="form-control" required></input>
+          </div>
+          </div>
+          
+        </div>
+        <div class="row justify-content-center  ">
+          <div class="col-md-4  py-1 col-lg-2">
+            <div class="input-group">
+              <span class="input-group-text">Gender</span>  
+          <select class="form-select " id="gender" name="gender" >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="other">other</option>
+
+          </select>
+        </div>
+        </div>
+        </div>
+        <!-- Fine Anagrafica -->
+        <div class="row justify-content-center ">
+          <div class="py-2">
+            <h4 class="text-center">Mail and password</h4>  
+          </div>
+          <div class="col-md-4  col-lg-3 py-1">
+            <div class="input-group">
+              <input type="email" name="mail" id="mail" class="form-control" placeholder="Email" title="Mail need @" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required onchange="checkmail()">      
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3 py-1">
+            <!--  <input type="password" name="password" id="password" class="form-control" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Minimum 8 characters, at least one uppercase letter, one lowercase letter, and one number" required> !-->
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" title="Minimum 8 characters, at least one uppercase letter, one lowercase letter, and one number" required>
+          </div>
+          
+        </div>
+        <div class="row justify-content-center py-4">
+        <div class="col-md-4  col-lg-3 py-1">
+          <div class="text-center">
+            <button type="submit" id="signup-button" class="btn btn-success w-100 my-4 mb-2">Create Account</button>
+          </div>
+        </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/footer.html') %>
+  <script type="text/javascript" src="./js/function.js"></script>
+</html>

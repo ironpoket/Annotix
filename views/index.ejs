@@ -1,125 +1,270 @@
 <!DOCTYPE html>
-<html lang="it">
-  <%- include('../common/head.html') %> <%-
-  include('../common/it/modal.html') %>
-  <img src="../img/bg3.png" alt="Background Image" class="bg-image" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecogitoJS</title>
+
+    <link rel="stylesheet" href="/css/recogito.min.css" />
+
+    <!--JQuery-->
+    <script src="/js/recogito.min.js" rel="preload"></script>
+    <script src="/js/jquery-3.6.3.min.js" rel="preload"></script>
+
+    <!--Diff-->
+    <script
+      type="text/javascript"
+      src="/js/diff_match_patch_uncompressed.js"
+    ></script>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- MDB -->
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="/scss/styles.css" />
+  </head>
   <body>
-    <%- include('../common/it/navbar.html') %>
-    <div
-      class="d-flex justify-content-center align-items-center"
-      style="height: 600px"
-    >
-      <div class="container">
-        <% if (complete === true) { %>
-          <div class="alert alert-warning text-center p-3" role="alert">
-            <i class="fas fa-bell"></i>
-            Puoi finire l'esperienza, in qualunque momento, toccando su "Concludi" in alto a destra o andare avanti e annotare fino a dieci frasi.
-            <i class="fas fa-bell"></i>
-          </div>
-          
-        <% } %>       
-        <div class="card ">
-          <div class="card-body">
-            <!-- Form-->
-            <form action="/useriteration" method="post">
-              <div class="row">
-                <!-- Form-->
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="sentence"
-                      >Leggi la frase e rispondi alle domande
-                    </label>
-                    <textarea
-                      class="form-control default-text textarea-center"
-                      id="sentence"
-                      name="sentence"
-                      rows="6"
-                      readonly
-                      style="background-color: #f0fff0;"
-                    ><%=frase %></textarea>
-                    <!--Text area prende gli spazi vuoti-->
-                  </div>
-                </div>
-
-                <!-- Menu a destra con didascalia e input box -->
-                <div class="col-md-6" id="yesorno" style="display: block">
-                  <div >
-                    <label for="discriminationQuestion">Ritieni che questa frase sia discriminatoria?<br><br></label>
-                  </div>
-                  <label class="custom-radio">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="isdiscriminatory"
-                      id="si"
-                      value="true"
-                      onclick="gotocategory()"
-                    />
-                    <div class="radio-outer-circle">
-                      <div class="radio-inner-circle"></div>
-                    </div>
-                    <span class="radio-label">Si</span>
-                  </label>
-                  <p></p>
-                    <label class="custom-radio">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="isdiscriminatory"
-                        id="no"
-                        value="false"
-                        onclick="discriminatory()"
-                      />
-                      <div class="radio-outer-circle">
-                        <div class="radio-inner-circle"></div>
-                      </div>
-                      <span class="radio-label">No</span>
-                    </label>       
-                  </div>
-                  
-                
-                
-
-                <!-- Form select -->
-
-                <div class="col-md-6" id="menucategoria" style="display: none">
-                  <label for="categoria">Quale delle seguenti categorie descrive meglio il tipo di discriminazione presente nella frase secondo te? <br><br><br></label>
-                    <select id="categoria" name="categoria" class="form-select">
-                      <option value="Nationality">Nazionalità</option>
-                      <option value="Gender identity">
-                        Identità di Genere
-                      </option>
-                      <option value="Religious beliefs">
-                        Credenze Religiose
-                      </option>
-                      <option value="Ethnicity">Etnia</option>
-                      <option value="Sexual orientation">
-                        Orientamento Sessuale
-                      </option>
-                    </select>
-                  </div>
-                  <nav aria-label="Page navigation example" id="nextsentence" style="display: none;">
-                    <ul class="pagination justify-content-end">
-                      <li class="page-item" id="precedente" style="display: none;">
-                        <a class="page-link" href="#" onclick="yesorno()" >Precedente</a>
-                      </li>
-                      <li class="page-item">
-                        <button type="submit" class="page-link stretched-link" >Prossima frase</button>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-
-                <!-- Spazio vuoto per allineamento -->
-                
-              </div>
-            </form>
-            <!-- end row-->
+    <%- include('../common/navbar.html') %> <%- include('../common/modal.html')
+    %>
+    <!--Main Navigation-->
+    <header>
+      <!-- Background image -->
+      <div
+        id="intro"
+        class="p-5 text-center bg-image shadow-1-strong"
+        style="background-image: url('/img/bg.png')"
+      >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white px-4">
+              <h1>Editor Annotativo</h1>
+              <div id="content" class="plaintext textContainer"></div>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Background image -->
+    </header>
+
+    <!--Footer-->
+    <div
+      class="bg-light text-lg-start"
+      style="display: flex; flex-direction: column"
+    >
+      <div class="py-4 text-center">
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="listAnnotations()"
+        >
+          Annotazioni (console)
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary primary"
+          onclick="goToFirepad()"
+        >
+          Firepad
+        </button>
+        <button type="button" class="btn btn-primary" onclick="loadDiff()">
+          Diff
+        </button>
+        <button type="button" class="btn btn-primary" onclick="download()">
+          Scarica il documento
+        </button>
+      </div>
+      <div class="py-4 text-center" style="max-width: 75%; align-self: center">
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <label class="form-label" for="customFile"
+            >Selezione il file da caricare per l'annotazione (solamente il
+            formato .txt è disponibile)</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="uploadInput"
+            name="file"
+            accept=".txt"
+          />
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin-top: 2.5%"
+          >
+            Carica
+          </button>
+        </form>
+      </div>
+
+      <hr class="m-0" />
     </div>
+    <!--Footer-->
+
+    <script>
+      var r;
+
+      var diff;
+      var ann;
+      var txt;
+
+      (function () {
+        $("#content").load("/text");
+
+        r = Recogito.init({
+          content: "content",
+          locale: "auto",
+          allowEmpty: false,
+          editorAutoPosition: true,
+          mode: "html",
+          widgets: [
+            { widget: "COMMENT" },
+            {
+              widget: "TAG",
+              vocabulary: [
+                // TAG POSSIBILI DI DEFAULT
+                "Generic",
+              ],
+            },
+          ],
+          relationVocabulary: ["isRelated", "isPartOf", "isSameAs"],
+        });
+
+        r.loadAnnotations("/Annotations").then(function (annotation) {
+          fetch("/tag")
+            .then((res) => res.json())
+            .then((data) => {
+              for (index in data.itemListElement) {
+                r.widgets[1].vocabulary.push(
+                  data.itemListElement[index].item.name
+                );
+              }
+            });
+
+          fetch("/diff&annotations")
+            .then((res) => res.json())
+            .then((data) => {
+              dif = data.diff;
+              ann = data.annotation;
+              txt = data.text;
+              txt = txt.replace(/<\/?[^>]+(>|$)/g, "");
+            })
+            .then(() => {
+              localStorage.setItem("diff", JSON.stringify(dif));
+
+              if (dmp.patch_make(dif).length != 0) {
+                alert(
+                  "Attenzione!\nSono state effettuate queste modifiche: \n\n" +
+                    dmp.patch_make(dif) +
+                    "\nLe annotazioni in conflitto con le modifiche effettuate veranno eliminate\n"
+                );
+
+                fixAnnotations(dif, ann, txt);
+                saveAnnotations();
+              }
+            });
+        });
+
+        // events handlers
+        r.on("selectAnnotation", function (a) {
+          console.log("selected", a);
+        });
+
+        r.on("createAnnotation", function (a) {
+          console.log("created", a);
+
+          saveAnnotations();
+        });
+
+        r.on("updateAnnotation", function (annotation, previous) {
+          console.log("updated", previous, "with", annotation);
+
+          saveAnnotations();
+        });
+
+        r.on("cancelSelected", () => {
+          console.log("Selezione rimossa");
+        });
+
+        r.on("deleteAnnotation", function (annotation) {
+          console.log("Cancellata ", annotation);
+
+          saveAnnotations();
+        });
+      })();
+
+      (function () {
+        // Aggiungi l'evento di caricamento del file al form
+        var form = document.querySelector("form");
+        form.addEventListener("submit", handleFileUpload);
+
+        // Funzione per gestire l'evento di caricamento del file
+        function handleFileUpload(event) {
+          if (
+            confirm(
+              "Attenzione! Se carichi il documento tutte le precedenti annotazioni verrano cancellate, vuoi proseguire?"
+            )
+          ) {
+            event.preventDefault(); // Evita l'invio del form
+
+            r.clearAnnotations();
+            saveAnnotations();
+
+            var fileInput = document.getElementById("uploadInput");
+            var file = fileInput.files[0]; // Ottieni il file caricato
+            var textUploaded;
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var fileContent = e.target.result; // Ottieni il contenuto del file
+
+              // Aggiorna il contenuto della div "content"
+              var contentDiv = document.getElementById("content");
+              contentDiv.textContent = fileContent;
+              textUploaded = fileContent;
+
+              console.log(textUploaded);
+
+              fetch("/text", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  text: textUploaded,
+                }),
+              }).then(goToFirepad());
+            };
+
+            reader.readAsText(file); // Leggi il contenuto del file come testo
+          } else {
+            event.preventDefault();
+            alert("Procedura di caricamento annullata");
+          }
+        }
+      })();
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"
+    ></script>
+    <!-- My scripts -->
+    <script type="text/javascript" src="/js/recogitoScripts.js"></script>
+    <%- include('../common/footer.html') %>
   </body>
-  <%- include('../common/it/footer.html') %>
-  <script type="text/javascript" src="/js/function.js"></script>
 </html>

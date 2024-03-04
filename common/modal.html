@@ -1,0 +1,72 @@
+<!--
+<html>
+  <head>
+    <title>Modal</title>
+    <style>
+      /* Aggiungi stili CSS per il modal qui */
+      .modal {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal">
+      <h2>Questo è un modal</h2>
+      <p>Contenuto del modal...</p>
+      <button onclick="chiudiModal()">Chiudi</button>
+    </div>
+
+    <script>
+      function chiudiModal() {
+        // Implementa la logica per chiudere il modal
+        // Puoi nascondere il modal o effettuare altre operazioni
+        // Qui è solo un esempio con un button per chiuderlo
+        document.querySelector(".modal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
+-->
+<div
+  class="modal fade"
+  id="detailsnote"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-mdb-ripple-init
+          data-mdb-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-tertiary"
+          data-mdb-ripple-init
+          data-mdb-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-success" data-mdb-ripple-init>
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

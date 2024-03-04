@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../common/head.html') %> <%- include('../common/navbar.html') %>
+  <body>
+    <div class="container-xl py-4">
+      <div class=" row justify-content-cente py-1">
+        <h3 class="text-center">Update Account</h3>
+      </div>
+      <form id="createuser" role="form text-center col-8" action="/form-update" method="post">
+        <div class="row justify-content-center">
+          <div class="py-1">
+            <span class="row justify-content-center py-2" style="font-size: 14px;">
+             Update your personal information or your mail and password
+            </span>            
+              <h4 class=" text-center"> Personal information</h4>  
+          </div>
+          <div class="col-md-4  py-3">
+            <input type="text" name="name" class="form-control" placeholder="name" id="name" required="true"  pattern="[a-zA-Z]{2,15}" title="No number,maximum 15 characters" value=<%= locals.name %>>
+          </div>
+          <div class="col-md-4  py-3">
+            <input type="text" name="surname" class="form-control" placeholder="surname" id="surname" required="true" pattern="[a-zA-Z]{2,15}" title="No number,maximum 15 characters" value=<%= session.surname %>>
+          </div>
+        </div>
+        <div class="row justify-content-center py-4 ">
+          <div class="col-md-4  py-1">
+            <div class="input-group">
+              <span class="input-group-text" >Date of birth</span>
+              <input type="date" name="age" class="form-control" required="true" max="<?=$today?>" value="<%= session.age %>">
+            </div>
+          </div>
+          <div class="col-md-4  py-1">
+            <div class="input-group">
+            <span class="input-group-text">Accademic field</span>  
+            <input type="text" id="accademic_fields" name="accademic_fields" class="form-control" required value=<%= session.accademic_fields %>></input>
+          </div>
+          </div>
+          
+        </div>
+        <div class="row justify-content-center  ">
+          <div class="col-md-4  py-1 col-lg-2">
+            <div class="input-group">
+              <span class="input-group-text">Gender</span>  
+          <select class="form-select " id="gender" aria-describedby="inputGroup-sizing-sm" name="gender" selected=<%= session.gender %> >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="other">other</option>
+
+          </select>
+        </div>
+        </div>
+        </div>
+        <!-- Fine Anagrafica -->
+        <div class="row justify-content-center ">
+          <div class="py-2">
+            <h4 class="text-center">Mail and password</h4>  
+          </div>
+          <div class="col-md-4  col-lg-3 py-1">
+            <div class="input-group">
+              <!--<input type="email" name="mail" id="mail" class="form-control" placeholder="Email" title="Mail need @" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" value="<%= locals.username %>" required >!-->
+              <input type="email" name="mail" id="mail" class="form-control" placeholder="Email"  value="<%= locals.username %>" required onchange="checkmailforupdate()" >
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3 py-1">
+            <div class="input-group mb-3">
+              <div class="input-group-text">
+                <input class="form-check-input mt-0" name="pchange" id="pchange" type="checkbox" value="false" onchange="enablepassword()" >
+              </div>
+              <input type="password" id="password" name="password" class="form-control"  aria-label="Text input with checkbox" placeholder="password" disabled="false" />
+            </div>
+            <div id="describe-psw" class="form-text">
+              Check the box to change the password
+            </div>
+          </div>
+          
+        </div>
+        <div class="row justify-content-center py-3">
+        <div class="col-md-4  col-lg-3 ">
+          <div class="text-center">
+            <button type="submit" id="update-button" class="btn btn-warning w-100 my-4 mb-2">Update</button>
+          </div>
+        </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/footer.html') %>
+  <script type="text/javascript" src="./js/function.js"></script>
+</html>

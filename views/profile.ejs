@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../common/head.html') %> <%- include('../common/navbar.html') %>
+  <body>
+    <div class="container-xl">
+      <div class="col align-self-center">
+        <div class="row d-flex align-self-center" style="height: 100px">
+          <p></p>
+          <h1 class="text-center">Profile</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center py-1">
+        <div class="col-md-2 py-1">
+          <h4 class="text-center"><%= session.name %></h4>
+        </div>
+        <div class="col-md-2 py-1">
+          <h4 class="text-center"><%= session.surname %></h4>
+        </div>
+        <div class="row d-flex align-self-center" style="height: 60px">
+          <p class="text-center">
+            <a href="update_profile">Update my Profile</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container-xl">
+      <div class="col align-self-center">
+        <div class="row d-flex align-self-center">
+          <p></p>
+          <h1 class="text-center">My notation</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%- include('../common/footer.html') %>
+</html>

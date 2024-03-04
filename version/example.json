@@ -1,0 +1,15 @@
+{
+  "annotation": [],
+  "diff": [
+    {
+      "0": 0,
+      "1": "banana cipolla"
+    },
+    {
+      "0": -1,
+      "1": " prova"
+    }
+  ],
+  "prevtext": "banana cipolla prova",
+  "text": "banana cipolla prova"
+}
